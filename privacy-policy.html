@@ -60,7 +60,8 @@
     app.</p>
     <p>Backing up to iCloud is on by default. It writes to the private database
     of your own iCloud account, which we have no access to. Turning the switch
-    off keeps everything on the device.</p>
+    off stops new copies going up. What has already reached your iCloud stays
+    there, in your own account, until you remove it.</p>
     <p>If you allow location, it is read only while the camera is open, and it
     is written into the photograph's own metadata the way any camera records it.
     Declining changes nothing else about how the app works.</p>
@@ -73,8 +74,10 @@
     <h2 class="serif">What leaves the phone</h2>
     <p>The app's own network activity is two things, both Apple's. CloudKit
     carries your moments to the private database of your iCloud account and
-    back. StoreKit carries a purchase. There is nothing else, and no server of
-    ours anywhere in it.</p>
+    back. StoreKit asks the App Store, at each launch, for the prices and for
+    whether a subscription is active on this device, and carries a purchase
+    when you make one. There is nothing else, and no server of ours anywhere
+    in it.</p>
     <p>A purchase is handled by Apple end to end. We receive no card number and
     no identity from it, only the fact that a subscription is active on the
     device.</p>
