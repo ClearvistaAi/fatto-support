@@ -43,7 +43,7 @@
 
   <header>
     <h1 class="serif">fatto. privacy</h1>
-    <p class="date">Effective 5 September 2026</p>
+    <p class="date">Effective 27 September 2026</p>
   </header>
 
   <section>
@@ -51,33 +51,91 @@
     app is built to keep your photographs on your device. That choice makes this
     page short: in almost every case we cannot see your information, because it
     never reaches us.</p>
+    <p>Version 1.2 added an optional account, for sending moments to people
+    nearby and finding friends who use the app. Those put a few things in a
+    directory. The sections on signing in, contacts and nearby say exactly
+    what, and why. None of it applies unless you sign in.</p>
   </section>
 
   <section id="the-app">
     <h2 class="serif">What the app keeps</h2>
     <p>Photographs are made in the app and kept on the device. There are no
-    accounts, no servers of ours, and no analytics or advertising code in the
-    app.</p>
+    servers of ours, and no analytics or advertising code in the app.</p>
     <p>Backing up to iCloud is on by default. It writes to the private database
     of your own iCloud account, which we have no access to. Turning the switch
     off stops new copies going up. What has already reached your iCloud stays
     there, in your own account, until you remove it.</p>
     <p>If you allow location, it is read only while the camera is open, and it
     is written into the photograph's own metadata the way any camera records it.
-    Declining changes nothing else about how the app works.</p>
+    If you add a place where you want to be discoverable, the app also checks,
+    while it is open, whether you are at that place. Places are kept on the
+    device and are not sent anywhere. Declining location changes nothing else
+    about how the app works.</p>
     <p>Nothing is written to your photo library unless you ask for it, either by
     saving a single photograph or by turning on the switch that keeps originals
     in Photos.</p>
   </section>
 
+  <section id="account">
+    <h2 class="serif">Signing in, and the directory</h2>
+    <p>Signing in is optional. It is asked for only when you turn on nearby
+    sharing or look for friends, and the rest of the app works without it.</p>
+    <p>You sign in with Apple. From Apple the app receives an identifier for
+    your account and, if you choose to share them, your name and your email
+    address. You can also type a phone number. These are kept on your
+    device.</p>
+    <p>So that friends can find you, the app writes an entry to a directory in
+    the public database of the app's own iCloud container, which Apple runs.
+    The entry holds the name you give; an identifier derived from your Apple
+    account, not the account itself; a key your phone uses to prove it is you
+    when you send a moment; and a scrambled form (a hash) of your email
+    address, if Apple shared a real one, and of your phone number, if you
+    typed one.</p>
+    <p>Anyone using fatto. can ask the directory about a hash they already
+    hold and learn the name and key that go with it. The directory cannot be
+    listed or searched. A hash of a phone number can be reversed by someone
+    who tries every possible number, so treat a number you add as findable
+    by people who use the app.</p>
+  </section>
+
+  <section id="contacts">
+    <h2 class="serif">Your contacts</h2>
+    <p>If you look for friends, iPhone asks whether the app may read your
+    contacts; on iOS 18 and later you choose which ones. The app reads names,
+    phone numbers and email addresses, and nothing else on a card. The cards
+    stay on your device. To find out who has fatto., the app turns each number
+    and email into a hash on your device and asks the directory about those
+    hashes. The directory answers and keeps nothing about the question. Your
+    contacts are not uploaded, not stored by us, and not used for anything
+    else, and nothing is sent to anyone in them unless you tap Invite and send
+    the message yourself.</p>
+  </section>
+
+  <section id="nearby">
+    <h2 class="serif">Sending moments nearby</h2>
+    <p>If you turn on "Be discoverable", phones near you with fatto. open can
+    see your name while the app is open on yours. You choose who: everyone, or
+    only contacts who can be matched to you through the email address Apple
+    verified. A place you add turns this on while you are there.</p>
+    <p>A moment you send goes directly from your phone to the other phone, over
+    Bluetooth and Wi-Fi, encrypted. It does not pass through us or through any
+    server. The photograph is sent without its location. The other person has
+    to accept it first, and then it is theirs, in their own ledger.</p>
+    <p>If someone sends you something you do not want, you can decline it,
+    block them, or report them. A report opens an email to us carrying their
+    identifier, so that we can look into it.</p>
+  </section>
+
   <section id="network">
     <h2 class="serif">What leaves the phone</h2>
-    <p>The app's own network activity is two things, both Apple's. CloudKit
-    carries your moments to the private database of your iCloud account and
-    back. StoreKit asks the App Store, at each launch, for the prices and for
+    <p>The app's own network activity is Apple's, plus one direct connection
+    between phones. CloudKit carries your moments to the private database of
+    your iCloud account and back and, if you signed in, carries your directory
+    entry and your friends lookups to and from the app's public database.
+    StoreKit asks the App Store, at each launch, for the prices and for
     whether a subscription is active on this device, and carries a purchase
-    when you make one. There is nothing else, and no server of ours anywhere
-    in it.</p>
+    when you make one. A moment sent nearby goes phone to phone. There is no
+    server of ours anywhere in it.</p>
     <p>A purchase is handled by Apple end to end. We receive no card number and
     no identity from it, only the fact that a subscription is active on the
     device.</p>
@@ -91,6 +149,15 @@
     <p>A private moment is hidden on the device by blur and Face ID. It is not
     encrypted differently from any other moment, and it is backed up like any
     other.</p>
+  </section>
+
+  <section id="deleting">
+    <h2 class="serif">Deleting your account</h2>
+    <p>Settings has "Delete account". It removes your directory entry and
+    forgets the account on your device. Every moment stays in your ledger; it
+    was never the account's. To stop Apple sharing your sign in with the app
+    as well, remove fatto. under Sign in with Apple in your Apple Account
+    settings.</p>
   </section>
 
   <section id="app-store">
